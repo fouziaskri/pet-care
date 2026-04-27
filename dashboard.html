@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Care Tracker - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand" onclick="window.location.href='dashboard.html'">
+      <span>🐾</span> Pet Care Tracker
+    </div>
+    <div class="navbar-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('tr')">TR</button>
+      </div>
+      <span class="nav-username" id="navUsername"></span>
+      <button class="btn-logout" onclick="logout()" data-key="logout">Logout</button>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">🐾</div>
+        <div class="stat-number" id="totalPets">0</div>
+        <div class="stat-label" data-key="myPets">My Pets</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-number" id="totalActivities">0</div>
+        <div class="stat-label" data-key="activities">Activities</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🍽️</div>
+        <div class="stat-number" id="totalFeeding">0</div>
+        <div class="stat-label" data-key="feedings">Feedings</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🚶</div>
+        <div class="stat-number" id="totalWalking">0</div>
+        <div class="stat-label" data-key="walks">Walks</div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <h2 data-key="myPets">My Pets</h2>
+      <button class="btn btn-success btn-sm" onclick="goToAddPet()" data-key="addPet">+ Add Pet</button>
+    </div>
+
+    <div id="petsList" class="pets-grid"></div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal-overlay" id="editModal" style="display:none;">
+    <div class="modal-box">
+      <h3 data-key="editPet">Edit Pet</h3>
+      <div class="form-group">
+        <label data-key="petName">Pet Name</label>
+        <input type="text" id="editName" />
+      </div>
+      <div class="form-group">
+        <label data-key="petType">Pet Type</label>
+       <select id="editType">
+  <option value="Dog" data-key="petDog">🐶 Dog</option>
+  <option value="Cat" data-key="petCat">🐱 Cat</option>
+  <option value="Bird" data-key="petBird">🐦 Bird</option>
+  <option value="Rabbit" data-key="petRabbit">🐰 Rabbit</option>
+  <option value="Fish" data-key="petFish">🐟 Fish</option>
+  <option value="Other" data-key="petOther">🐾 Other</option>
+</select>
+      </div>
+      <div class="form-group">
+        <label data-key="age">Age</label>
+        <input type="number" id="editAge" min="0" />
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary btn-sm" onclick="closeEdit()" data-key="cancel">Cancel</button>
+        <button class="btn btn-primary btn-sm" onclick="saveEdit()" data-key="saveChanges">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Delete Modal -->
+  <div class="modal-overlay" id="confirmModal" style="display:none;">
+    <div class="confirm-box">
+      <h3>⚠️</h3>
+      <p data-key="confirmDelete">Are you sure you want to delete this pet and all its activities?</p>
+      <div class="confirm-actions">
+        <button class="btn btn-secondary btn-sm" onclick="closeConfirm()" data-key="cancel">Cancel</button>
+        <button class="btn btn-danger btn-sm" onclick="confirmDeletePet()" data-key="yesDelete">Yes, Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/lang.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

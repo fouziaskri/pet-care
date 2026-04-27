@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Care Tracker - Add Pet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand" onclick="window.location.href='dashboard.html'">
+      <span>🐾</span> Pet Care Tracker
+    </div>
+    <div class="navbar-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('tr')">TR</button>
+      </div>
+      <button class="btn-logout" onclick="window.location.href='dashboard.html'" data-key="backToDashboard">Back</button>
+    </div>
+  </nav>
+  <div class="page-wrapper">
+    <div class="form-card">
+      <h2 data-key="addNewPet">Add a New Pet</h2>
+      <div id="message" class="message" style="display:none;"></div>
+      <div class="form-group">
+        <label data-key="petName">Pet Name</label>
+        <input type="text" id="petName" placeholder="Example: Buddy" />
+      </div>
+      <div class="form-group">
+        <label data-key="petType">Pet Type</label>
+       <select id="petType">
+  <option value="" data-key="actSelect">-- Select --</option>
+  <option value="Dog" data-key="petDog">🐶 Dog</option>
+  <option value="Cat" data-key="petCat">🐱 Cat</option>
+  <option value="Bird" data-key="petBird">🐦 Bird</option>
+  <option value="Rabbit" data-key="petRabbit">🐰 Rabbit</option>
+  <option value="Fish" data-key="petFish">🐟 Fish</option>
+  <option value="Other" data-key="petOther">🐾 Other</option>
+</select>
+      </div>
+      <div class="form-group">
+        <label data-key="age">Age (years)</label>
+        <input type="number" id="petAge" placeholder="Example: 3" min="0" />
+      </div>
+      <button class="btn btn-primary" onclick="addPet()" data-key="savePet">Save Pet</button>
+      <button class="btn btn-secondary" onclick="window.location.href='dashboard.html'" data-key="cancel">Cancel</button>
+    </div>
+  </div>
+  <script src="js/lang.js"></script>
+  <script src="js/pets.js"></script>
+</body>
+</html>

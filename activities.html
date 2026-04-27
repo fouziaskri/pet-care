@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Care Tracker - Activities</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand" onclick="window.location.href='dashboard.html'">
+      <span>🐾</span> Pet Care Tracker
+    </div>
+    <div class="navbar-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('tr')">TR</button>
+      </div>
+      <button class="btn-logout" onclick="window.location.href='dashboard.html'" data-key="backToDashboard">← Dashboard</button>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <div class="pet-banner">
+      <div class="pet-banner-avatar" id="bannerAvatar">🐾</div>
+      <div>
+        <h3 id="petName">Loading...</h3>
+        <p id="petInfo"></p>
+      </div>
+    </div>
+
+    <div class="add-activity-box">
+      <div class="section-title" data-key="addActivity">Add New Activity</div>
+      <div id="message" class="message" style="display:none;"></div>
+      <div class="form-group">
+        <label data-key="activityType">Activity Type</label>
+        <select id="activityType">
+  <option value="" data-key="actSelect">-- Select --</option>
+  <option value="feeding" data-key="actFeeding">🍽️ Feeding</option>
+  <option value="walking" data-key="actWalking">🚶 Walking</option>
+  <option value="medicine" data-key="actMedicine">💊 Medicine</option>
+  <option value="grooming" data-key="actGrooming">✂️ Grooming</option>
+  <option value="vet" data-key="actVet">🏥 Vet Visit</option>
+  <option value="vaccination" data-key="actVaccination">💉 Vaccination</option>
+  <option value="bath" data-key="actBath">🛁 Bath</option>
+  <option value="nailcut" data-key="actNailcut">💅 Nail Cutting</option>
+  <option value="training" data-key="actTraining">🎓 Training</option>
+  <option value="playtime" data-key="actPlaytime">🎾 Play Time</option>
+  <option value="sleep" data-key="actSleep">😴 Sleep</option>
+  <option value="water" data-key="actWater">💧 Water</option>
+  <option value="weight" data-key="actWeight">⚖️ Weight Check</option>
+  <option value="other" data-key="actOther">📝 Other</option>
+</select>
+      </div>
+      <div class="form-group">
+        <label data-key="notes">Notes</label>
+        <input type="text" id="activityNote" placeholder="Example: gave 2 cups of food" />
+      </div>
+      <div class="form-group">
+        <label data-key="dateTime">Date & Time</label>
+        <input type="datetime-local" id="activityDate" />
+      </div>
+      <button class="btn btn-primary" onclick="addActivity()" data-key="saveActivity">Save Activity</button>
+    </div>
+
+    <div class="section-header">
+      <h2 data-key="activityHistory">Activity History</h2>
+    </div>
+    <div id="activitiesList"></div>
+  </div>
+
+  <!-- Confirm delete activity -->
+  <div class="modal-overlay" id="confirmActModal" style="display:none;">
+    <div class="confirm-box">
+      <h3>⚠️</h3>
+      <p data-key="confirmDeleteActivity">Delete this activity?</p>
+      <div class="confirm-actions">
+        <button class="btn btn-secondary btn-sm" onclick="closeActConfirm()" data-key="cancel">Cancel</button>
+        <button class="btn btn-danger btn-sm" onclick="confirmDeleteActivity()" data-key="yesDelete">Yes, Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/lang.js"></script>
+  <script src="js/activities.js"></script>
+</body>
+</html>

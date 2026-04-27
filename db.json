@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "fullname": "fouzi",
+      "username": "fouzi",
+      "password": "1234",
+      "id": "vRCSf7AozyQ"
+    }
+  ],
+  "pets": [
+    {
+      "name": "anour",
+      "type": "Dog",
+      "age": "3",
+      "userId": "vRCSf7AozyQ",
+      "id": "dY5qptaQOsU"
+    },
+    {
+      "name": "islem",
+      "type": "Fish",
+      "age": "100",
+      "userId": "vRCSf7AozyQ",
+      "id": "8XJlutB9Wus"
+    }
+  ],
+  "activities": [
+    {
+      "petId": "dY5qptaQOsU",
+      "type": "medicine",
+      "note": "",
+      "date": "2026-04-27T10:04",
+      "id": "NtaTZn6m8_8"
+    },
+    {
+      "petId": "8XJlutB9Wus",
+      "type": "feeding",
+      "note": "",
+      "date": "2026-04-27T23:18",
+      "id": "5m4WYgvbgCg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
